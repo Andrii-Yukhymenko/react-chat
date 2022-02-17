@@ -6,6 +6,7 @@ import Login from "./components/Login";
 import "normalize-css-ultimate/normalize-ultimate.css";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Context } from "./index";
+import AppRoutes from "./components/AppRoutes";
 function App() {
   const { auth } = useContext(Context);
   const [user] = useAuthState(auth);
@@ -13,13 +14,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <Routes>
-        {/*<CheckRoute logined={user} alt="/login">*/}
-        <Route path="/chat" element={<Chat />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="*" element={<Navigate to="/chat" />} />
-        {/*</CheckRoute>*/}
-      </Routes>
+      <AppRoutes user={user} />
     </>
   );
 }

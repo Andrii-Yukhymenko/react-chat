@@ -20,6 +20,8 @@ export const Context = createContext(null);
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
+document.querySelector('body').style.background = '#0f0f0f';
+
 ReactDOM.render(
   <Context.Provider value={{firebase, firestore, auth}}>
     <BrowserRouter>

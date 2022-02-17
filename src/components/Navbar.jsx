@@ -13,7 +13,7 @@ function Navbar() {
   const navigate = useNavigate();
   return (
     <AppBar position="static">
-      <Toolbar variant='dense'>
+      <Toolbar style={{background: '#212121'}}>
         <Grid container justify="flex-end" alignItems="center">
           <Typography variant="h6" component="h1" sx={{ flexGrow: 1 }}>
             React Chat

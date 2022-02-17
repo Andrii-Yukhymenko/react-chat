@@ -32,7 +32,8 @@ function Chat() {
     <Container>
       <Grid
         container
-        justifyContent="center"
+        direction="column"
+        alignItems="center"
         style={{ height: window.innerHeight - 50, marginTop: "20px" }}
       >
         <div
@@ -42,6 +43,7 @@ function Chat() {
             border: "1px solid gray",
             overflowY: "auto",
             padding: "20px",
+            marginBottom: "30px",
           }}
         >
           {messages.map((message) => {
@@ -55,14 +57,16 @@ function Chat() {
                       : "2px solid red",
                   marginLeft: message.uid === user.uid ? "auto" : "0px",
                   width: "fit-content",
-                  marginBottom: '10px'
+                  marginBottom: "10px",
                 }}
               >
-                <Grid container>
+                <Grid direction='row' container>
                   <Avatar src={message.photoURL} />
-                  <div>{message.displayName}</div>
+                  <Grid direction='column' container>
+                    <div>{message.displayName}</div>
+                    <div>{message.text}</div>
+                  </Grid>
                 </Grid>
-                <div>{message.text}</div>
               </div>
             );
           })}
@@ -76,13 +80,13 @@ function Chat() {
           <TextField
             onChange={(e) => setValue(e.target.value)}
             variant="outlined"
-            style={{ width: "80%" }}
+            style={{ width: "80%", background: "#212121", color: "#898989" }}
             value={value}
           />
           <Button
             onClick={sendMessage}
             variant="outlined"
-            style={{ width: "15%" }}
+            style={{ width: "15%", color: "#898989", background: "#212121" }}
           >
             Отправить
           </Button>
