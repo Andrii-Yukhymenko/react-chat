@@ -25,7 +25,7 @@ jobs:
             cd cloned-repo-react-chat
             git clone https://github.com/Andrii-Yukhymenko/react-chat.git
             cd react-chat/
-            cp /var/www/react-chat-env/.env.local /var/www/react-chat/
+            cp /home/react-chat-env/.env.local /home/cloned-repo-react-chat/react-chat
             npm install
             npm run build .env.local
             cp -r build/* /var/www/react-chat
