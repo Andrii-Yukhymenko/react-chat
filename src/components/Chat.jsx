@@ -42,8 +42,9 @@ function Chat() {
             height: "60vh",
             border: "1px solid gray",
             overflowY: "auto",
-            padding: "20px",
+            padding: "10px",
             marginBottom: "30px",
+            borderRadius: "5px",
           }}
         >
           {messages.map((message) => {
@@ -58,13 +59,26 @@ function Chat() {
                   marginLeft: message.uid === user.uid ? "auto" : "0px",
                   width: "fit-content",
                   marginBottom: "10px",
+                  padding: "10px",
+                  borderRadius: "5px",
+                  background: '#212121',
                 }}
               >
-                <Grid direction='row' container>
-                  <Avatar src={message.photoURL} />
-                  <Grid direction='column' container>
-                    <div>{message.displayName}</div>
-                    <div>{message.text}</div>
+                <Grid direction="row" container>
+                  <Avatar
+                    style={{ marginBottom: "10px" }}
+                    src={message.photoURL}
+                  />
+                  <Grid direction="column" container>
+                    <div
+                      style={{
+                        marginBottom: "10px",
+                        color: message.uid === user.uid ? "green" : "red",
+                      }}
+                    >
+                      {message.displayName}
+                    </div>
+                    <div style={{ color: "#898989" }}>{message.text}</div>
                   </Grid>
                 </Grid>
               </div>
@@ -80,7 +94,12 @@ function Chat() {
           <TextField
             onChange={(e) => setValue(e.target.value)}
             variant="outlined"
-            style={{ width: "80%", background: "#212121", color: "#898989" }}
+            style={{
+              width: "80%",
+              background: "#212121",
+              color: "#898989",
+              borderRadius: "5px",
+            }}
             value={value}
           />
           <Button

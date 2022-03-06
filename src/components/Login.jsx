@@ -12,12 +12,6 @@ function Login() {
     const { user } = await auth.signInWithPopup(provider);
     await console.log(user);
   };
-  console.log(process.env.REACT_APP_FIREBASE_API_KEY)
-  console.log(process.env.REACT_APP_FIREBASE_AUTH_DOMAIN)
-  console.log(process.env.REACT_APP_FIREBASE_PROJECT_ID);
-  console.log(process.env.REACT_APP_FIREBASE_STORAGE_BUCKET);
-  console.log(process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID);
-  console.log(process.env.REACT_APP_FIREBASE_APP_ID);
   return (
     <Container>
       <Grid
@@ -27,7 +21,12 @@ function Login() {
         justifyContent={"center"}
       >
         <Grid
-          style={{ width: 400, background: "lightgray" }}
+          style={{
+            width: 400,
+            background: "lightgray",
+            borderRadius: "5px",
+            backgroundColor: "#212121",
+          }}
           container
           alignItems="center"
           justifyContent="center"
